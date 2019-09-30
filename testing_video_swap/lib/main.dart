@@ -25,6 +25,7 @@ class _VideoSwapPageState extends State<VideoSwapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black54,
       appBar: AppBar(
         title: Text('Video Swap'),
       ),
@@ -45,7 +46,7 @@ class _VideoSwapPageState extends State<VideoSwapPage> {
                   videoBrain.switchVideos();
                 });
               },
-            )
+            ),
           ],
         ),
       ),

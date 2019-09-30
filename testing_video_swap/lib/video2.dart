@@ -1,29 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoApp extends StatefulWidget {
+class VideoContainer extends StatelessWidget {
   final String videoUrl;
-  VideoApp(this.videoUrl);
-
-  @override
-  _VideoAppState createState() => _VideoAppState();
-}
-
-class _VideoAppState extends State<VideoApp> {
-  VideoPlayerController _controller;
-  Future<void> _initializeVideoPlayerFuture;
-
-  @override
-  void initState() {
-    _controller = VideoPlayerController.asset(widget.videoUrl);
-    _initializeVideoPlayerFuture = _controller.initialize();
-    _controller.setLooping(true);
-    _controller.play();
-    super.initState();
-  }
+  VideoContainer(this.videoUrl);
 
   @override
   Widget build(BuildContext context) {
+    VideoPlayerController _controller = VideoPlayerController.asset(videoUrl);
+    Future<void> _initializeVideoPlayerFuture = _controller.initialize();
+    _controller.setLooping(true);
+    _controller.play();
+
     return FutureBuilder(
       future: _initializeVideoPlayerFuture,
       builder: (context, snapshot) {
@@ -42,11 +30,5 @@ class _VideoAppState extends State<VideoApp> {
         }
       },
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }

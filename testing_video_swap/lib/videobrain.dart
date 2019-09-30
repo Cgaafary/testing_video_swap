@@ -1,18 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'video2.dart';
+
 class VideoBrain {
   List<Widget> videoList = [
-    Container(
-      height: 100,
-      width: 200,
-      color: Colors.blueAccent,
-    ),
-    Container(
-      height: 50,
-      width: 100,
-      color: Colors.redAccent,
-    )
+    VideoContainer('videos/1.mp4'),
+    VideoContainer('videos/2.mp4'),
   ];
 
   List<Widget> getVideoList() {
